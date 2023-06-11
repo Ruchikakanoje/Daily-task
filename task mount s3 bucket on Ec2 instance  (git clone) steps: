@@ -1,0 +1,57 @@
+task mount s3 bucket on Ec2 instance
+
+(git clone) steps:
+
+1. make sure the instance is in running
+
+state
+
+ 2. take ssh on mobaxterm and become root
+
+ 3. install all dependencies for fuse and s3 cmd
+
+4. type yum install automake fuse fuse-
+
+devel gcc-c++ git libcurl-devel libxml2-
+
+devel make openssl-devel
+
+now, download source code from git
+
+5. git clone https://github.com/s3fs- fuse/s3fs-fuse.git
+
+6. type cd s3fs-fuse 
+7. type ./autogen.sh
+
+8. type ./configure
+
+9. type make
+
+ 10. now make dir in /var (which will be your
+
+ 11. mkdir -p /var/s3fs-test-filesystem
+
+now,
+
+12. create bucket,
+
+13. aws s3 mb s3://s3fs-demobucket-navez
+
+now,
+
+14. create a IAM role and give s3full access also attach this role to your running instance
+
+now,
+
+15. type s3fs s3fs-demobucket-navez(bucket name) /var/s3fs-test-filesystem(dir. which you have created) -o iam_role-my-role-s3- full-access
+
+now,
+
+16. type df -h (you will see s3fs mount point)
+17. type echo "test-file"> "this is test
+
+file"
+
+18. goto aws consile
+
+19. click s3 service finally, refresh the page and you will se the bucketname which we have created over there.
