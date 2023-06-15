@@ -1,0 +1,46 @@
+task: Creaate anEBS EBS volume and mount on ec2 instance? steps:
+
+1.  EC2
+
+2.  launch instance
+
+3. volumes
+
+ 4. create new volume 
+
+5. give name:new-volume  create volume (you will see two volumes)
+
+now, attach volume to the instance
+
+6.  new volume then Action select attach volume
+
+
+
+goto mobaxterm & take SSH of your instance 
+7.  lsblk
+
+you will see two volumes
+
+check whether there is file system on new
+
+volume
+
+8.  sudo file -s /dev/xvdf now we will give file system to new volume
+
+9.  sudo mkfs -t xfs /dev/xvdf
+
+ 10. sudo file -s /dev/xvdf (you will see file system is given to new volume)
+
+now, create a dir, where you will mount the volume
+
+11. sudo mkdir -p /mount/volumes/
+
+new-volume
+
+mount the new volume on this path
+
+12. type sudo mount /dev/xvdf /mount/volume/my-new-volume 13. type df -h
+
+you will see new volume mounted
+
+successfully.
